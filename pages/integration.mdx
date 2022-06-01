@@ -1,0 +1,95 @@
+---
+title: 如何接入 mincu
+---
+
+# 如何接入 mincu
+
+> 本文档适用于从已经有**一定开发进度的 web 应用迁移到南大家园微应用**。
+> 注意：在阅读本迁移指南之前，**请先保证你已经阅读完上一篇文档：**[** 「mincu 技术文档 - 项目结构」**](/structure)
+
+## React 应用
+
+> 推荐使用 Function Component 来开发 React 项目
+> 仅有安装依赖与判断是否为 mincu 环境为必要步骤
+
+### 安装依赖
+
+```bash
+yarn add mincu-react
+```
+
+### 判断是否为 mincu 环境
+
+### 获取用户名
+
+```jsx
+import { useLogin } from 'mincu-hooks'
+import { dataModule } from 'mincu-react'
+
+const App = () => {
+  const { isReady } = useLogin()
+  const name = dataModule.appData.user.profile.basicProfile.name
+  
+  if (!isReady) {
+    return <div>加载中</div>
+  }
+  
+  return <div>用户名：{name}</div>
+}
+```
+
+### 操作 UI
+
+
+
+### 带云家园 token 调用一些 API
+
+```tsx
+import { useLogin } from 'mincu-hooks'
+import { dataModule, uiModule, networkModule } from 'mincu-react'
+
+const App = () => {
+  const { isReady } = useLogin()
+  const name = dataModule.appData.user.profile.basicProfile.name
+  
+  // new
+  const fetchData = async () => {
+    const loadingTip = await uiModule.loading('加载中', 0)
+    try {
+      const res = await networkModule.fetch.get(
+        'https://os.ncuos.com/api/user/profile/basic'
+      )
+      alert(JSON.stringify(res.data))
+    } catch (e) {
+      alert(e)
+    } finally {
+      loadingTip()
+    }
+  }
+  
+  if (!isReady) {
+    return <div>加载中</div>
+  }
+  
+  return (
+    <div>
+      用户名：{name}
+      <button onClick={() => uiModule.toScreen({ screen: '周课表' })}>
+        跳转到周课表
+      </button>
+      <button onClick={() => uiModule.exit()}>退出微应用</button>
+      {/* new */}
+      <button onClick={fetchSchoolLife}>测试云家园接口是否能成功拉取</button>
+  	</div>
+  )
+}
+```
+
+
+## Vue 应用
+
+> 直接参考 [https://github.com/ncuhome/mincu/tree/master/example/vue-spa](https://github.com/ncuhome/mincu/tree/master/example/vue-spa)
+
+## 其他应用
+
+> 直接参考 mincu-vanilla

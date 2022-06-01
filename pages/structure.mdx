@@ -1,0 +1,49 @@
+---
+title: 项目结构
+---
+
+# 项目结构
+
+## 什么是 Monorepo？
+
+> mincu 使用 monorepo 进行多个包与代码仓库管理
+
+我们都知道，Git 可以用来管理代码仓库，一开始我们都是一个项目对应一个代码仓库，换言之，一个代码仓库对应一个项目。<br />但如果我们存在这样一个问题，一个项目的代码需要另一个项目去复用，比如公共的配置文件、工具函数等，那么像刚刚这种一个仓库对应一个项目的模式是否还能保证我们能管理得好他们呢？因为像这种模式会遇到一些问题，比如在开发调试的时候，我们需要手动去 clone 各个项目的代码仓库到本地，然后还要对依赖进行绑定或链接，十分麻烦。<br />其实类似这样麻烦事情在这种一个仓库对应一个项目情况下还有很多，在此不一一列举。<br />为了避免出现如上问题，我们使用 Monorepo 方案来组织包与代码仓库，与之相对的则是 Multirepo，即刚刚提到的那种较为传统的一个代码仓库一个包的方案。
+<br />
+| <br /> | **Monorepo** | **Multi-repo** |
+| --- | --- | --- |
+| 包管理方式 | 一个代码仓库多个包 | 一个代码仓库一个包，n 个代码仓库 n 个包 |
+| 代码复用 | 简单 | 麻烦 |
+| 维护成本 | 低 | 较高 |
+| 协作成本 | 低 | 很高 |
+| 调试成本 | 低 | 较高 |
+
+好的方案需要好的工具去落地，那么该如何去落地 Monorepo 方案呢？在社区里，我们能找到许多类似的工具。<br />比如 [lerna](https://github.com/lerna/lerna) / [bolt](https://github.com/boltpkg/bolt) / [preconstruct](https://github.com/preconstruct/preconstruct) 等，mincu 使用 preconstruct 作为 monorepo 方案开发工具
+
+## 预设包
+
+> 我们推荐使用直接预设包来进行老项目迁移到 mincu
+
+它们都可以单独地引入到你的项目中使用，你可以根据你的需求引入所需要的依赖。<br />当你安装以上的预设包名时，依赖的包也会同时被安装。
+
+<br />
+
+| **包名** | **依赖的包** |
+| --- | --- |
+| mincu-react | mincu-core, mincu-data, mincu-event, mincu-network, mincu-ui |
+| mincu-vanilla | mincu-vanilla, mincu-hooks |
+
+
+## 依赖列表
+
+| **包名** | **能力** |
+| --- | --- |
+| mincu-core | 核心逻辑部分，包含了常用的用户数据，提供 web 和 native 的双向通信、调用来自 App 的接口等功能。 |
+| mincu-data | 数据部分，基本上来自于 core 里的 appData，不过加了一层初始化默认值处理。 |
+| mincu-debug | 调试部分，包含了 mincud 和 debugModule，以方便在 WebView 中进行远程调试。 |
+| mincu-event | 封装了一些原生操作函数，包括 openUrl, setShareConfig, showShare, login |
+| mincu-hooks | 封装了一些适用于 react 的 hooks，包括 useAppReady, useNativeState, useSafeArea。 |
+| mincu-lib | 共享库，包含了 constant 及 utils。 |
+| mincu-network | 基于 axios 封装的网络库，主要增加了请求拦截器，刷新 token 等功能。 |
+| mincu-ui | 封装了与原生界面显示有关的调用，包括 Toast, StatusBar Style, Header 标题栏, toScreen 跳转, exit 退出。 |
+| create-mincu | mincu 模板生成 cli，开箱即用。 |
