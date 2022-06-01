@@ -25,13 +25,12 @@ title: 🎼 实现原理
 
 根据上述 API，我们采用了以下的通信能力解决方案:
 
-<br />
-
 ![communication.png](../public/impl/communication.png)
 
 ## 🏫 第一次启动
 
-为什么要将整个流程分为**第一次启动**与**正常情况调用**呢？<br />首先一开始存在两个问题无法回避：
+为什么要将整个流程分为**第一次启动**与**正常情况调用**呢？
+首先一开始存在两个问题无法回避：
 
 1. 容器注入 Web 的性能（时间）不稳定
 1. Web 获取是否注入成功的手段**只能通过 Web 主动获取**
@@ -40,15 +39,11 @@ title: 🎼 实现原理
 
 下面流程图，即当用户通过南大家园打开使用了 mincu 的应用并进入应用页面时所发生的所有事情：
 
-<br />
-
 ![startup.png](../public/impl/startup.png)
 
 ## 🚥 一般情景的调用链路
 
 这里我们已经通过轮询的方式进入了 mincu 环境了，但如何在 mincu 环境下调用原生 API 并获得它的返回值呢？我们给出了如下的方案。
-
-<br />
 
 ![path.png](../public/impl/path.png)
 
@@ -109,7 +104,8 @@ const App = () => {
 
 ### 1. 注入优化
 
-在 Web 调用方法后从原生拿去返回值的场景里，我们经常要用到 `injectJavaScript` 方法来动态注入 JS 代码，所以提高其 JS 注入效率是提高调用 API 调用性能的关键。<br />在我们实践中发现，安卓端的 mincu 性能表现在一些方面比 iOS 端的稍差一些，所以经过一些调研，为了想办法提高`injectJavaScript` 的动态注入 JS 的效率，我们基于 [patch-package](https://github.com/ds300/patch-package) 将安卓原生的一部分代码进行了修改。
+在 Web 调用方法后从原生拿去返回值的场景里，我们经常要用到 `injectJavaScript` 方法来动态注入 JS 代码，所以提高其 JS 注入效率是提高调用 API 调用性能的关键。
+在我们实践中发现，安卓端的 mincu 性能表现在一些方面比 iOS 端的稍差一些，所以经过一些调研，为了想办法提高`injectJavaScript` 的动态注入 JS 的效率，我们基于 [patch-package](https://github.com/ds300/patch-package) 将安卓原生的一部分代码进行了修改。
 
 主要逻辑：
 
@@ -187,8 +183,6 @@ index 64025cd..ad8892e 100644
 白名单是隔离一般 Webview 环境与 mincu 环境的一个重要的特性，之所以要有白名单，是因为我们开放了南大家园的扫码能力与 deep link 功能，所以为了避免产生安全风险，我们将容器注入 mincu runtime 前增加了这一卡口。
 
 白名单系统会默认放行 *.ncuos.com 的域名进入 mincu 环境中，其他域名都不会被注入 mincu runtime。
-
-<br />
 
 ![whitelist.png](../public/impl/whitelist.png)
 
