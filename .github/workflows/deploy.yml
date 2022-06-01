@@ -17,9 +17,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         with:
-          version: 6.0.2
+          version: latest
           run_install: true
       - name: build
         run: |
@@ -35,7 +35,7 @@ jobs:
           alias-domains: |
             staging.mincu.vercel-action.amond.dev
             pr-{{PR_NUMBER}}.mincu.vercel-action.amond.dev
-      - uses: ./
+      - uses: amondnet/vercel-action@v20
         id: vercel-action-production
         if: github.event_name == 'push'
         with:
