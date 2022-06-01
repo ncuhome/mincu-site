@@ -24,7 +24,7 @@ jobs:
       - name: build
         run: |
           pnpm build
-      - uses: ./
+      - uses: amondnet/vercel-action@v20
         id: vercel-action-staging
         if: github.event_name == 'pull_request_target'
         with:
