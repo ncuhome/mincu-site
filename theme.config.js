@@ -5,8 +5,8 @@ export default {
   titleSuffix: ' – Mincu',
   nextLinks: true,
   prevLinks: true,
-  search: false,
-  customSearch: null, // customizable, you can use algolia for example
+  search: true,
+  unstable_flexsearch: true,
   darkMode: true,
   footer: true,
   footerText: `MIT ${new Date().getFullYear()} © NCUHOME.`,
