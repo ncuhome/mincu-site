@@ -13,8 +13,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <svg></svg>
-      <span>南大家园 WEB JS API</span>
+      <span>👏 Mincu - 南大家园 WEB JS API</span>
     </>
   ),
   head: (

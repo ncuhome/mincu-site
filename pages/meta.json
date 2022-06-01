@@ -1,10 +1,9 @@
 {
   "index": "❓ 什么是 mincu？",
-  "get-started": "开始",
-  "structure": "项目结构",
-  "integration": "如何接入 mincu",
-  "implementation": "实现原理",
-  "api-docs": "API 文档",
-  "debug": "调试指南",
-  "dev-mode": "iNCU 开发者模式"
+  "structure": "📚 项目结构",
+  "integration": "🍱 如何接入 mincu",
+  "implementation": "🎼 实现原理",
+  "api-docs": "📝 API 文档",
+  "debug": "💚 调试指南",
+  "dev-mode": "🟡 iNCU 开发者模式"
 }
