@@ -3,6 +3,7 @@ export default {
   projectLink: 'https://github.com/ncuhome/mincu-site', // GitHub link in the navbar
   docsRepositoryBase: 'https://github.com/ncuhome/mincu-site/blob/master', // base URL for the docs repository
   titleSuffix: ' – Mincu',
+  floatTOC: true,
   nextLinks: true,
   prevLinks: true,
   search: true,
