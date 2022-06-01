@@ -36,7 +36,9 @@ title: 实现原理
 
 **所以我们第一次启动的时候采用了 Web 端轮询方案，以判断是否在 mincu 容器环境中。**
 
-下面流程图，即当用户通过南大家园打开使用了 mincu 的应用并进入应用页面时所发生的所有事情：<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/190122/1639722852621-bb222897-e552-43b3-8f79-6995017faf47.png#clientId=uabc01c1b-0ac6-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=322&id=ufa90f6f6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1200&originWidth=2588&originalType=binary&ratio=1&rotation=0&showTitle=false&size=700134&status=done&style=none&taskId=u8dec10f9-8dc6-420b-921a-01079edc6f0&title=&width=695)
+下面流程图，即当用户通过南大家园打开使用了 mincu 的应用并进入应用页面时所发生的所有事情：<br />
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/190122/1639722852621-bb222897-e552-43b3-8f79-6995017faf47.png#clientId=uabc01c1b-0ac6-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=322&id=ufa90f6f6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1200&originWidth=2588&originalType=binary&ratio=1&rotation=0&showTitle=false&size=700134&status=done&style=none&taskId=u8dec10f9-8dc6-420b-921a-01079edc6f0&title=&width=695)
 
 ## 🚥 一般情景的调用链路
 
@@ -79,7 +81,7 @@ const App = () => {
 
 #### Web -> Native（第三种情况）
 
-```typescript
+```tsx
 import { networkModule } from 'mincu-react' // or mincu-network
 
 const App = () => {
@@ -101,6 +103,7 @@ const App = () => {
 在 Web 调用方法后从原生拿去返回值的场景里，我们经常要用到 `injectJavaScript` 方法来动态注入 JS 代码，所以提高其 JS 注入效率是提高调用 API 调用性能的关键。<br />在我们实践中发现，安卓端的 mincu 性能表现在一些方面比 iOS 端的稍差一些，所以经过一些调研，为了想办法提高`injectJavaScript` 的动态注入 JS 的效率，我们基于 [patch-package](https://github.com/ds300/patch-package) 将安卓原生的一部分代码进行了修改。
 
 主要逻辑：
+
 ```java
 @ReactMethod
 public void injectJavaScriptExperimental(int reactTag, String js) {
@@ -112,13 +115,17 @@ public void injectJavaScriptExperimental(int reactTag, String js) {
 }
 ```
 
-具体注入方法请查看：[https://github.com/ncuhome/iNCU/blob/dev/patches/react-native-webview%2B11.14.0.patch](https://github.com/ncuhome/iNCU/blob/dev/patches/react-native-webview%2B11.14.0.patch)
+具体注入方法请查看：[react-native-webview+11.17.1.patch](https://github.com/ncuhome/iNCU/blob/dev/patches/react-native-webview%2B11.17.1.patch)
 
 ### 2. 关于白名单
 
 白名单是隔离一般 Webview 环境与 mincu 环境的一个重要的特性，之所以要有白名单，是因为我们开放了南大家园的扫码能力与 deep link 功能，所以为了避免产生安全风险，我们将容器注入 mincu runtime 前增加了这一卡口。
 
-白名单系统会默认放行 *.ncuos.com 的域名进入 mincu 环境中，其他域名都不会被注入 mincu runtime。<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/190122/1639848493287-da678b02-f090-43d0-bd73-d06dc83946df.png#clientId=ud526331a-b4df-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=397&id=u5e55a64f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&size=490835&status=done&style=none&taskId=u7bd79fe2-e4bc-4875-ab45-a14a98bd068&title=&width=409)
+白名单系统会默认放行 *.ncuos.com 的域名进入 mincu 环境中，其他域名都不会被注入 mincu runtime。
+
+<br />
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/190122/1639848493287-da678b02-f090-43d0-bd73-d06dc83946df.png#clientId=ud526331a-b4df-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=397&id=u5e55a64f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&size=490835&status=done&style=none&taskId=u7bd79fe2-e4bc-4875-ab45-a14a98bd068&title=&width=409)
 
 而目前正式版客户端绕过白名单的方法有两个：
 
