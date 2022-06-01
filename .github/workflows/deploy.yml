@@ -23,6 +23,7 @@ jobs:
           run_install: true
       - name: build
         run: |
+          pnpm i
           pnpm build
       - uses: amondnet/vercel-action@v20
         id: vercel-action-staging
