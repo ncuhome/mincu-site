@@ -14,7 +14,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <span>👏 Mincu - 南大家园 WEB JS API</span>
+      <span>👏 mincu - 南大家园 WEB JS API</span>
     </>
   ),
   head: (
