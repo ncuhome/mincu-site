@@ -1,5 +1,5 @@
 ---
-title: 🍱 如何接入 mincu
+title: 🍱 使用指南
 ---
 
 > 本文档适用于从已经有**一定开发进度的 web 应用迁移到南大家园微应用**。
@@ -7,8 +7,10 @@ title: 🍱 如何接入 mincu
 
 ## React 应用
 
+> Example - [example/react-vite](https://github.com/ncuhome/mincu/tree/master/example/react-vite)
+> Example - [example/react-next](https://github.com/ncuhome/mincu/tree/master/example/react-next)
+
 > 推荐使用 Function Component 来开发 React 项目
-> 仅有安装依赖与判断是否为 mincu 环境为必要步骤
 
 <br />
 
@@ -19,7 +21,12 @@ import Stackblitz from '../components/Stackblitz'
 ### 安装依赖
 
 ```bash
+# npm
+npm i mincu-react
+# yarn
 yarn add mincu-react
+# pnpm
+pnpm i mincu-react
 ```
 
 ### 判断是否为 mincu 环境
@@ -27,18 +34,16 @@ yarn add mincu-react
 ### 获取用户名
 
 ```jsx
-import { useLogin } from 'mincu-hooks'
-import { dataModule } from 'mincu-react'
+import { mincu, Ready } from 'mincu-react'
 
 const App = () => {
-  const { isReady } = useLogin()
-  const name = dataModule.appData.user.profile.basicProfile.name
+  const name = mincu.appData.user.profile.basicProfile.name
   
-  if (!isReady) {
-    return <div>加载中</div>
-  }
-  
-  return <div>用户名：{name}</div>
+  return (
+    <Ready>
+      <div>用户名：{name}</div>
+    </Ready>
+  ) 
 }
 ```
 
@@ -49,50 +54,196 @@ const App = () => {
 ### 带云家园 token 调用一些 API
 
 ```tsx
-import { useLogin } from 'mincu-hooks'
-import { dataModule, uiModule, networkModule } from 'mincu-react'
+import axios from 'axios'
+import { mincu, Ready } from 'mincu-react'
+
+const fetcher = axios.create()
+mincu.useAxiosInterceptors(fetcher)
 
 const App = () => {
-  const { isReady } = useLogin()
-  const name = dataModule.appData.user.profile.basicProfile.name
+  const name = mincu.appData.user.profile.basicProfile.name
   
-  // new
   const fetchData = async () => {
-    const loadingTip = await uiModule.loading('加载中', 0)
+    const removeLoading = await mincu.toast.loading('加载中', 0)
     try {
-      const res = await networkModule.fetch.get(
+      const res = await fetcher.get(
         'https://os.ncuos.com/api/user/profile/basic'
       )
       alert(JSON.stringify(res.data))
     } catch (e) {
       alert(e)
     } finally {
-      loadingTip()
+      removeLoading()
     }
   }
   
-  if (!isReady) {
-    return <div>加载中</div>
-  }
-  
   return (
-    <div>
-      用户名：{name}
-      <button onClick={() => uiModule.toScreen({ screen: '周课表' })}>
-        跳转到周课表
-      </button>
-      <button onClick={() => uiModule.exit()}>退出微应用</button>
-      {/* new */}
-      <button onClick={fetchSchoolLife}>测试云家园接口是否能成功拉取</button>
-  	</div>
+    <Ready>
+      <div>
+        用户名：{name}
+        <button onClick={() => mincu.toScreen({ screen: '周课表' })}>
+          跳转到周课表
+        </button>
+        <button onClick={() => mincu.exit()}>退出微应用</button>
+        {/* new */}
+        <button onClick={fetchSchoolLife}>测试云家园接口是否能成功拉取</button>
+      </div>
+    </Ready>
   )
 }
 ```
 
-## Vue 应用
+## Vue3 应用
 
-> 直接参考 [`https://github.com/ncuhome/mincu/tree/master/example/vue-spa`](https://github.com/ncuhome/mincu/tree/master/example/vue-spa)
+> Example - [example/vue-vite](https://github.com/ncuhome/mincu/tree/master/example/vue-vite)
+
+### 安装依赖
+
+```bash
+# npm
+npm i mincu-vanilla
+# yarn
+yarn add mincu-vanilla
+# pnpm
+pnpm i mincu-vanilla
+```
+
+### 示例
+
+```vue
+<!-- Ready.vue -->
+<script setup lang="ts">
+import { ref } from 'vue';
+import { mincu } from 'mincu-vanilla'
+
+defineProps<{
+  fallback: any
+}>();
+
+const ready = ref(mincu.isReady && mincu.isApp)
+
+</script>
+
+<template>
+  <template v-if="ready">
+    <slot></slot>
+  </template>
+
+  <template v-if="!ready">
+    <component :is="fallback"></component>
+  </template>
+</template>
+
+<!-- App.vue -->
+<script setup lang="ts">
+import Fallback from './components/Fallback.vue';
+import Ready from './components/Ready.vue';
+import Home from './Home.vue'
+</script>
+
+<template>
+  <Ready :fallback="Fallback">
+    <Home></Home>
+  </Ready>
+</template>
+```
+
+### API 调用
+
+```vue
+<script setup lang="ts">
+import { mincu } from 'mincu-vanilla'
+import Button from './components/Button.vue';
+import useNativeState from './hooks/useNativeState'
+import { watch } from 'vue';
+
+const colorScheme = useNativeState('colorScheme')
+const colors = useNativeState('colors', '')
+
+watch(colorScheme, (newVal) => {
+  document.body.style.background = newVal === 'dark' ? '#222' : '#fff'
+  document.body.style.color = newVal === 'dark' ? '#fff' : '#000'
+})
+
+const studentId = mincu.userInfo.profile.entireProfile.base_info.xh
+</script>
+
+<template>
+  <div style="margin-left: 10px; margin-right: 10px; margin-top: 10px; padding-bottom: 10px;">
+    <div>
+      <p className="font-medium text-xl m-2">
+        学号: {{ studentId }}
+      </p>
+      <p className="font-medium text-xl m-2">
+        主题色: {{ colorScheme }}
+      </p>
+      <Button :onClick="() => mincu.login('username', 'pwd')">
+        登录
+      </Button>
+      <p className="font-medium text-xl m-2">colors 测试</p>
+      <div
+        className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-3"
+        :style="{ color: colors.white }">
+        colors.white
+      </div>
+      <div
+        className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-3"
+        :style="{ color: colors.black }">
+        colors.black
+      </div>
+  </div>
+</template>
+
+```
+
+### Hooks
+
+```ts
+import { ref, onBeforeUnmount, onMounted } from 'vue'
+import { States, mincuCore } from 'mincu-vanilla'
+
+export default <T extends keyof States>(key: T, defaultVal?: any) => {
+  const state = ref<States[T]>(defaultVal)
+
+  const handle = (res: States[T]) => {
+    state.value = res
+  }
+
+  onMounted(() => {
+    handle(mincu?.[key] ?? {})
+    mincuCore.listener(key, handle)
+  })
+
+  onBeforeUnmount(() => {
+    mincuCore.remove(key, handle)
+  })
+
+  return state
+}
+```
 
 ## 其他应用
 
-> 直接参考 mincu-vanilla
+> 直接参考 [example/mincu-vanilla](https://github.com/ncuhome/mincu/tree/master/example/vanilla-ts)
+
+### 安装依赖
+
+```bash
+# npm
+npm i mincu-vanilla
+# yarn
+yarn add mincu-vanilla
+# pnpm
+pnpm i mincu-vanilla
+```
+
+### API 调用
+
+```js
+import { mincu } from 'mincu-vanilla'
+
+// Show a toast
+mincu.toast.success('Hello World')
+// Exit
+mincu.exit()
+```
