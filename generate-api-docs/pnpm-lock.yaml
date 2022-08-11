@@ -31,14 +31,14 @@ devDependencies:
   '@types/react-dom': 18.0.6
   '@types/react-native': 0.69.5
   axios: 0.27.2
-  mincu-core: 2.8.0
-  mincu-data: 2.8.0
-  mincu-event: 2.8.0
-  mincu-hooks: 2.8.0
-  mincu-lib: 2.8.0
-  mincu-react: 2.8.0
-  mincu-ui: 2.8.0
-  mincu-vanilla: 2.8.0
+  mincu-core: 2.8.1
+  mincu-data: 2.8.1
+  mincu-event: 2.8.1
+  mincu-hooks: 2.8.1
+  mincu-lib: 2.8.1
+  mincu-react: 2.8.1
+  mincu-ui: 2.8.1
+  mincu-vanilla: 2.8.1
   typedoc: 0.23.10_typescript@4.7.4
   typedoc-plugin-inline-sources: 1.0.1_typedoc@0.23.10
   typedoc-plugin-markdown: 3.13.4_typedoc@0.23.10
@@ -841,70 +841,70 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /mincu-core/2.8.0:
-    resolution: {integrity: sha512-bOFQsGDvqpDhbwUDvZdyztroNeK2KJfhwfUz0GGYUuhGeY/Hyyxr36gsx5iN98ke5TQGsuDfyZWrdTpWDq8SWQ==}
+  /mincu-core/2.8.1:
+    resolution: {integrity: sha512-urPLOYiTmNhXGtXN7xM87DfrKVEy73wsI+LbCvBfy5/z7SMzvb5K++7veqXwStgkRGM9IQdbUJdGTG7NmBWiMA==}
     dependencies:
       events: 3.3.0
-      mincu-lib: 2.8.0
+      mincu-lib: 2.8.1
     dev: true
 
-  /mincu-data/2.8.0:
-    resolution: {integrity: sha512-sf8B4fO+NHKHBf098sNAcOqK9uGz5Zsq+Z/abWTEkIAidc2fmflvLDngwK7EkNHd/weSSQusG91d8S5C4mLWTA==}
+  /mincu-data/2.8.1:
+    resolution: {integrity: sha512-6Ln9IXTNIRLBXuHuKp4S0Q68LMftp/qjTQHSYYHwtYudgvCP3SAOgfVoy4hkoQfrw03znTGobTYMZmmvhwk/rA==}
     dependencies:
-      mincu-core: 2.8.0
-      mincu-lib: 2.8.0
+      mincu-core: 2.8.1
+      mincu-lib: 2.8.1
     dev: true
 
-  /mincu-event/2.8.0:
-    resolution: {integrity: sha512-xEFiyTyWKTcjpC6+OHfAhzKkO1nRzXR1L5lCh/3FXbZtic7cBixetDw+jDnpwYRxarT/Q8oQNMp/4vBeY+hPxQ==}
+  /mincu-event/2.8.1:
+    resolution: {integrity: sha512-97tUQBDOtIguyLMqtbm8wCbAgzZXrkCR7jeF+0Y/cZQdc5l75sOpwqw2CVJnin9nuG8jA0Vtv0oyJpDUb17itQ==}
     dependencies:
-      mincu-core: 2.8.0
+      mincu-core: 2.8.1
     dev: true
 
-  /mincu-hooks/2.8.0:
-    resolution: {integrity: sha512-YfOxnqq1ULSfSnycTDUGj2ct7IegpCSXRVAEc6dO/EJ0GVI9O19NR+bzEcUeeIoBpWkSEIe5EL13bPBL8e/j0A==}
+  /mincu-hooks/2.8.1:
+    resolution: {integrity: sha512-dt9HoQlMv9dm7hu0hvWDiJNy2hmpVSqiPFuGCIMUwqkfcBfV8qs4tyb7qwlJaNodus3qERN6Ymw0DkqLRcTNNg==}
     peerDependencies:
       react: '>=17'
     dependencies:
       lodash: 4.17.21
-      mincu-core: 2.8.0
-      mincu-data: 2.8.0
+      mincu-core: 2.8.1
+      mincu-data: 2.8.1
     dev: true
 
-  /mincu-lib/2.8.0:
-    resolution: {integrity: sha512-zrUZPBOpGN/lWCBiQqx9ZPj01MLQGsLkQEWZvHoKINlvZs+N4MbeG/LBGcbIvkh3vgyHpKBku4Lr/Hnbr0QmFg==}
+  /mincu-lib/2.8.1:
+    resolution: {integrity: sha512-cKm4NH0089FlKBrtuvpAEYMU2i6KGanbUl5FOZETUNekKqz5ZP1MX97PgugPyUUWUuTHN29YEo2eNud0hyq5DQ==}
     dev: true
 
-  /mincu-network/2.8.0:
-    resolution: {integrity: sha512-Rj69T7MBMMPEJVnR2BfkgJHPUADLH7RGuQELN+VQuXBeUKSac8NKW+r9DuogQUlsydmgWFJ/+PGcvo02mp8lXw==}
+  /mincu-network/2.8.1:
+    resolution: {integrity: sha512-X24L92N/mErkYRlojAeDam4+5tvfJrrWSqP/Pwz4JM94hXQqx1jr8yiTXx4ErMeP7nEY+mNnwkTA+e2y/IMsXA==}
     dependencies:
-      mincu-core: 2.8.0
-      mincu-data: 2.8.0
+      mincu-core: 2.8.1
+      mincu-data: 2.8.1
     dev: true
 
-  /mincu-react/2.8.0:
-    resolution: {integrity: sha512-Z8XutUG5c+bfZl+4vxuqLpPkt1WYaO1tEbIO3XMYIXp/K4xlqAycEo0l20QJ2E5xdbAqDPG1UaQCN1fb9ISRdw==}
+  /mincu-react/2.8.1:
+    resolution: {integrity: sha512-T1hWoB442u7gMRtImdpzGPS58J1/ZSuUL/L2yKimg7sUrYmaqBvpC2dXH5oY3tDp33aS016tikolcftsB0C0Cw==}
     peerDependencies:
       react: '>=17'
     dependencies:
-      mincu-hooks: 2.8.0
-      mincu-vanilla: 2.8.0
+      mincu-hooks: 2.8.1
+      mincu-vanilla: 2.8.1
     dev: true
 
-  /mincu-ui/2.8.0:
-    resolution: {integrity: sha512-zSL7DgbUKCmHQTyr9paKPjet+JK++r/yHg4PuuIcCLXbNQswuv2WsH/9yS5cHReFB+WLiJYa1q02XQuZh/4DVA==}
+  /mincu-ui/2.8.1:
+    resolution: {integrity: sha512-tDRa+DquxU0U6+3FmAmubtZ55q1Wv2HPLQwW0XR6ZnN1sI6JvsBcr+yTjmUjUDCDHdJIv1mJM78DY4s/1chnJA==}
     dependencies:
-      mincu-core: 2.8.0
+      mincu-core: 2.8.1
     dev: true
 
-  /mincu-vanilla/2.8.0:
-    resolution: {integrity: sha512-FIHSTDx/Us3fq+R25VbQCP3ENAFo6Cbfal0yjH9Zf95viXs86xaOG5hh1PBkIm8BKYrnAkVYypj4D0ARoyYKlA==}
+  /mincu-vanilla/2.8.1:
+    resolution: {integrity: sha512-5tTdsYG4WDIwenK+72DcupCpBpJgZhHofF+g9R4kdirnYwqdNjCUaVY+rJHxdNexDK3kup0J2WrStv/rQ0gFCw==}
     dependencies:
-      mincu-core: 2.8.0
-      mincu-data: 2.8.0
-      mincu-event: 2.8.0
-      mincu-network: 2.8.0
-      mincu-ui: 2.8.0
+      mincu-core: 2.8.1
+      mincu-data: 2.8.1
+      mincu-event: 2.8.1
+      mincu-network: 2.8.1
+      mincu-ui: 2.8.1
     dev: true
 
   /minimatch/5.1.0:

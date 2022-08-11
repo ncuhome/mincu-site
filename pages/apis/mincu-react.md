@@ -7,6 +7,7 @@
 - [AppData](interfaces/AppData)
 - [EdgeInsets](interfaces/EdgeInsets)
 - [INativeFuncs](interfaces/INativeFuncs)
+- [Mincu](interfaces/Mincu)
 - [NavConfig](interfaces/NavConfig)
 - [ShareConfig](interfaces/ShareConfig)
 
@@ -45,7 +46,7 @@ ___
 
 ### mincu
 
-• `Const` **mincu**: `Mincu`
+• `Const` **mincu**: [`Mincu`](interfaces/Mincu)
 
 ___
 
@@ -333,6 +334,683 @@ ___
 | `exitWebView` | () => `void` |
 | `handleShowHeader` | (`value?`: `boolean`) => `boolean` |
 | `toScreen` | (`e`: [`NavConfig`](NavConfig)) => `void` |
+
+
+
+## Interface: Mincu
+
+### Hierarchy
+
+- `MincuCoreBase`
+
+- `DataModule`
+
+- `EventModule`
+
+- `NetWorkModule`
+
+- `UIModule`
+
+  ↳ **`Mincu`**
+
+### Properties
+
+#### axiosInterceptors
+
+• **axiosInterceptors**: () => \{ `error`: (`error`: `any`) => `Promise`\<`any`\> ; `request`: (`config`: `AxiosRequestConfig`\<`any`\>) => `AxiosRequestConfig`\<`any`\> ; `response`: (`response`: `AxiosResponse`\<`any`, `any`\>) => `AxiosResponse`\<`any`, `any`\>  }
+
+##### Type declaration
+
+▸ (): `Object`
+
+###### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `error` | (`error`: `any`) => `Promise`\<`any`\> |
+| `request` | (`config`: `AxiosRequestConfig`\<`any`\>) => `AxiosRequestConfig`\<`any`\> |
+| `response` | (`response`: `AxiosResponse`\<`any`, `any`\>) => `AxiosResponse`\<`any`, `any`\> |
+
+##### Inherited from
+
+NetWorkModule.axiosInterceptors
+
+___
+
+#### backPress
+
+• **backPress**: `Object`
+
+##### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `bind` | (`cb`: () => `void`, `onResulst?`: (`success`: `boolean`) => `void`) => () => `void` |
+| `unbind` | (`cb`: () => `void`) => `void` |
+
+##### Inherited from
+
+UIModule.backPress
+
+___
+
+#### call
+
+• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: () => `void`) => `void`
+
+##### Type declaration
+
+▸ \<`Class`, `Method`\>(`baseClass`, `method`, `params`, `success?`, `failed?`): `void`
+
+主动请求并触发客户端事件
+
+###### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Class` | extends keyof [`INativeFuncs`](INativeFuncs) |
+| `Method` | extends `string` \| `number` \| `symbol` |
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `baseClass` | `Class` |
+| `method` | `Method` |
+| `params` | `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
+| `success?` | (`res?`: \{ `data`: `ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any` |
+| `failed?` | () => `void` |
+
+###### Returns
+
+`void`
+
+##### Inherited from
+
+MincuCoreBase.call
+
+___
+
+#### callPromise
+
+• **callPromise**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>) => `Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+
+##### Type declaration
+
+▸ \<`Class`, `Method`\>(`baseClass`, `method`, `params`): `Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+
+###### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Class` | extends keyof [`INativeFuncs`](INativeFuncs) |
+| `Method` | extends `string` \| `number` \| `symbol` |
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `baseClass` | `Class` |
+| `method` | `Method` |
+| `params` | `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
+
+###### Returns
+
+`Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+
+##### Inherited from
+
+MincuCoreBase.callPromise
+
+___
+
+#### fetch
+
+• **fetch**: `any`
+
+**`Deprecated`**
+
+networkModule.useAxiosInterceptors is for your need
+
+##### Inherited from
+
+NetWorkModule.fetch
+
+___
+
+#### initial
+
+• **initial**: (`resolve`: (`value?`: `unknown`) => `any`, `reject?`: (`value?`: `unknown`) => `any`) => `void`
+
+##### Type declaration
+
+▸ (`resolve`, `reject?`): `void`
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `resolve` | (`value?`: `unknown`) => `any` |
+| `reject?` | (`value?`: `unknown`) => `any` |
+
+###### Returns
+
+`void`
+
+##### Inherited from
+
+MincuCoreBase.initial
+
+___
+
+#### listener
+
+• **listener**: (`eventName`: `string`, `fn`: (`data`: `any`) => `any`) => `EventEmitter`
+
+##### Type declaration
+
+▸ (`eventName`, `fn`): `EventEmitter`
+
+添加一个原生事件监听器
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` |
+| `fn` | (`data`: `any`) => `any` |
+
+###### Returns
+
+`EventEmitter`
+
+##### Inherited from
+
+MincuCoreBase.listener
+
+___
+
+#### once
+
+• **once**: (`eventName`: `string`, `fn`: (`data`: `any`) => `any`) => `EventEmitter`
+
+##### Type declaration
+
+▸ (`eventName`, `fn`): `EventEmitter`
+
+添加一个原生事件监听器 (监听一次后立即销毁)
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` |
+| `fn` | (`data`: `any`) => `any` |
+
+###### Returns
+
+`EventEmitter`
+
+##### Inherited from
+
+MincuCoreBase.once
+
+___
+
+#### remove
+
+• **remove**: (`eventName`: `string`, `fn`: (`data`: `any`) => `any`) => `void`
+
+##### Type declaration
+
+▸ (`eventName`, `fn`): `void`
+
+移除某个原生事件监听器
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eventName` | `string` |
+| `fn` | (`data`: `any`) => `any` |
+
+###### Returns
+
+`void`
+
+##### Inherited from
+
+MincuCoreBase.remove
+
+___
+
+#### storage
+
+• **storage**: `MincuStorage`
+
+##### Inherited from
+
+DataModule.storage
+
+___
+
+#### toast
+
+• **toast**: `Object`
+
+##### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `fail` | (`title`: `string`, `during?`: `number`) => `Promise`\<`number`\> |
+| `info` | (`title`: `string`, `during?`: `number`) => `Promise`\<`number`\> |
+| `loading` | (`title`: `string`, `during?`: `number`) => `Promise`\<() => `void`\> |
+| `remove` | (`key`: `number`) => `Promise`\<`void`\> |
+| `success` | (`title`: `string`, `during?`: `number`) => `Promise`\<`number`\> |
+
+##### Inherited from
+
+UIModule.toast
+
+___
+
+#### token
+
+• **token**: `string`
+
+##### Inherited from
+
+NetWorkModule.token
+
+### Accessors
+
+#### appData
+
+• `get` **appData**(): [`AppData`](AppData)
+
+##### Returns
+
+[`AppData`](AppData)
+
+##### Inherited from
+
+MincuCoreBase.appData
+
+___
+
+#### colorScheme
+
+• `get` **colorScheme**(): [`ColorSchemeName`](#colorschemename)
+
+##### Returns
+
+[`ColorSchemeName`](#colorschemename)
+
+##### Inherited from
+
+DataModule.colorScheme
+
+___
+
+#### colors
+
+• `get` **colors**(): `any`
+
+##### Returns
+
+`any`
+
+##### Inherited from
+
+DataModule.colors
+
+___
+
+#### inset
+
+• `get` **inset**(): [`EdgeInsets`](EdgeInsets)
+
+##### Returns
+
+[`EdgeInsets`](EdgeInsets)
+
+##### Inherited from
+
+DataModule.inset
+
+___
+
+#### isApp
+
+• `get` **isApp**(): `boolean`
+
+##### Returns
+
+`boolean`
+
+##### Inherited from
+
+MincuCoreBase.isApp
+
+___
+
+#### isDark
+
+• `get` **isDark**(): `boolean`
+
+##### Returns
+
+`boolean`
+
+##### Inherited from
+
+DataModule.isDark
+
+___
+
+#### isReady
+
+• `get` **isReady**(): `any`
+
+##### Returns
+
+`any`
+
+##### Inherited from
+
+MincuCoreBase.isReady
+
+___
+
+#### messageChannel
+
+• `get` **messageChannel**(): `EventEmitter`
+
+##### Returns
+
+`EventEmitter`
+
+##### Inherited from
+
+MincuCoreBase.messageChannel
+
+___
+
+#### userInfo
+
+• `get` **userInfo**(): `Object`
+
+##### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `colorScheme` | [`ColorSchemeName`](#colorschemename) |
+| `colors` | `any` |
+| `inset` | [`EdgeInsets`](EdgeInsets) |
+| `profile` | \{ `basicProfile`: \{ `app_avatar_url`: `string` ; `department`: `string` ; `department_id`: `string` ; `head_pic_url`: `string` ; `max_role_level`: `number` ; `message`: `string` ; `name`: `string` ; `status`: `number`  } ; `entireProfile`: `IEntireProfileResponse`  } |
+| `profile.basicProfile` | \{ `app_avatar_url`: `string` ; `department`: `string` ; `department_id`: `string` ; `head_pic_url`: `string` ; `max_role_level`: `number` ; `message`: `string` ; `name`: `string` ; `status`: `number`  } |
+| `profile.basicProfile.app_avatar_url` | `string` |
+| `profile.basicProfile.department` | `string` |
+| `profile.basicProfile.department_id` | `string` |
+| `profile.basicProfile.head_pic_url` | `string` |
+| `profile.basicProfile.max_role_level` | `number` |
+| `profile.basicProfile.message` | `string` |
+| `profile.basicProfile.name` | `string` |
+| `profile.basicProfile.status` | `number` |
+| `profile.entireProfile` | `IEntireProfileResponse` |
+| `token` | `string` |
+
+##### Inherited from
+
+DataModule.userInfo
+
+___
+
+#### webview
+
+• `get` **webview**(): `any`
+
+##### Returns
+
+`any`
+
+##### Inherited from
+
+MincuCoreBase.webview
+
+### Methods
+
+#### exit
+
+▸ **exit**(): `void`
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+UIModule.exit
+
+___
+
+#### getStoredToken
+
+▸ **getStoredToken**(): `string`
+
+从浏览器缓存中拿取 token
+
+一般放在该组件挂载 (渲染) 阶段结束后执行
+
+##### Returns
+
+`string`
+
+取出缓存中的 token
+
+##### Inherited from
+
+NetWorkModule.getStoredToken
+
+___
+
+#### getVersion
+
+▸ **getVersion**(): `Promise`\<`string`\>
+
+##### Returns
+
+`Promise`\<`string`\>
+
+##### Inherited from
+
+DataModule.getVersion
+
+___
+
+#### handleShowHeader
+
+▸ **handleShowHeader**(`value`): `Promise`\<`boolean`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+##### Returns
+
+`Promise`\<`boolean`\>
+
+##### Inherited from
+
+UIModule.handleShowHeader
+
+___
+
+#### login
+
+▸ **login**(`username`, `password`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `username` | `string` |
+| `password` | `string` |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+EventModule.login
+
+___
+
+#### openUrl
+
+▸ **openUrl**(`url`): `void`
+
+通过系统默认浏览器打开 Web 页面
+
+主要适配一些端内转端外场景和 deeplink
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | 要跳转的链接 |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+EventModule.openUrl
+
+___
+
+#### refreshToken
+
+▸ **refreshToken**(): `Promise`\<`string`\>
+
+刷新 token 函数
+
+##### Returns
+
+`Promise`\<`string`\>
+
+返回一个新 token 的 Promise 对象
+
+##### Inherited from
+
+NetWorkModule.refreshToken
+
+___
+
+#### setBarStyle
+
+▸ **setBarStyle**(`style`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `style` | `StatusBarStyle` |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+UIModule.setBarStyle
+
+___
+
+#### setShareConfig
+
+▸ **setShareConfig**(`config`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `config` | [`ShareConfig`](ShareConfig) |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+EventModule.setShareConfig
+
+___
+
+#### showShare
+
+▸ **showShare**(): `void`
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+EventModule.showShare
+
+___
+
+#### toScreen
+
+▸ **toScreen**(`config`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `config` | [`NavConfig`](NavConfig) |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+UIModule.toScreen
+
+___
+
+#### useAxiosInterceptors
+
+▸ **useAxiosInterceptors**(`axiosInstance`): `void`
+
+**`Exmaple`**
+
+const fetcher = axios.create()
+networkModule.useAxiosInterceptors(fetcher)
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `axiosInstance` | `AxiosInstance` |
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+NetWorkModule.useAxiosInterceptors
 
 
 
