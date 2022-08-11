@@ -1,0 +1,10 @@
+{
+  "mincu-core": "mincu-core",
+  "mincu-data": "mincu-data",
+  "mincu-event": "mincu-event",
+  "mincu-hooks": "mincu-hooks",
+  "mincu-lib": "mincu-lib",
+  "mincu-react": "mincu-react",
+  "mincu-ui": "mincu-ui",
+  "mincu-vanilla": "mincu-vanilla"
+}

@@ -3,7 +3,7 @@
   "structure": "📚 项目结构",
   "integration": "🍱 使用指南",
   "implementation": "🎼 实现原理",
-  "api-docs": "📝 API 文档",
   "debug": "💚 调试指南",
-  "dev-mode": "🟡 iNCU 开发者模式"
+  "dev-mode": "🟡 iNCU 开发者模式",
+  "apis": "📝 API 文档"
 }
