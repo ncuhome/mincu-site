@@ -4,12 +4,12 @@
 
 ## Interfaces
 
-- [AppData](interfaces/AppData)
-- [EdgeInsets](interfaces/EdgeInsets)
-- [INativeFuncs](interfaces/INativeFuncs)
-- [Mincu](interfaces/Mincu)
-- [NavConfig](interfaces/NavConfig)
-- [ShareConfig](interfaces/ShareConfig)
+- [AppData](#interface-appdata)
+- [EdgeInsets](#interface-edgeinsets)
+- [INativeFuncs](#interface-inativefuncs)
+- [Mincu](#interface-mincu)
+- [NavConfig](#interface-navconfig)
+- [ShareConfig](#interface-shareconfig)
 
 ## Type Aliases
 
@@ -46,7 +46,7 @@ ___
 
 ### mincu
 
-• `Const` **mincu**: [`Mincu`](interfaces/Mincu)
+• `Const` **mincu**: [`Mincu`](#interface-mincu)
 
 ___
 
@@ -122,8 +122,7 @@ ___
 
 ▸ **useNativeState**\<`T`\>(`key`): [`States`](#states)[`T`]
 
-返回当前所监听的客户端状态
-如果要在其他项目中使用，建议直接复制
+返回 app 的状态
 
 #### Type parameters
 
@@ -145,11 +144,11 @@ ___
 
 ### useSafeArea
 
-▸ **useSafeArea**(): [`EdgeInsets`](interfaces/EdgeInsets)
+▸ **useSafeArea**(): [`EdgeInsets`](#interface-edgeinsets)
 
 #### Returns
 
-[`EdgeInsets`](interfaces/EdgeInsets)
+[`EdgeInsets`](#interface-edgeinsets)
 
 # Interfaces
 
@@ -232,25 +231,25 @@ ___
 
 #### Clipboard
 
-• **Clipboard**: `any`
+• **Clipboard**: `Clipboard`
 
 ___
 
 #### DeviceInfo
 
-• **DeviceInfo**: `any`
+• **DeviceInfo**: `DeviceInfo`
 
 ___
 
 #### Linking
 
-• **Linking**: `LinkingStatic`
+• **Linking**: `RNLinking`
 
 ___
 
 #### NetInfo
 
-• **NetInfo**: `any`
+• **NetInfo**: `NetInfo`
 
 ___
 
@@ -268,7 +267,14 @@ ___
 
 #### Share
 
-• **Share**: `any`
+• **Share**: `Object`
+
+##### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `openShareMenu` | () => `void` |
+| `setShareConfig` | (`config`: [`ShareConfig`](ShareConfig)) => `void` |
 
 ___
 
@@ -317,7 +323,7 @@ ___
 
 #### Vibration
 
-• **Vibration**: `any`
+• **Vibration**: `VibrationStatic`
 
 ___
 
@@ -398,7 +404,7 @@ ___
 
 #### call
 
-• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: () => `void`) => `void`
+• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: () => `void`) => `void`
 
 ##### Type declaration
 
@@ -419,8 +425,8 @@ ___
 | :------ | :------ |
 | `baseClass` | `Class` |
 | `method` | `Method` |
-| `params` | `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
-| `success?` | (`res?`: \{ `data`: `ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any` |
+| `params` | `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
+| `success?` | (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any` |
 | `failed?` | () => `void` |
 
 ###### Returns
@@ -435,11 +441,11 @@ ___
 
 #### callPromise
 
-• **callPromise**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>) => `Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+• **callPromise**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>) => `Promise`\<`CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
 
 ##### Type declaration
 
-▸ \<`Class`, `Method`\>(`baseClass`, `method`, `params`): `Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+▸ \<`Class`, `Method`\>(`baseClass`, `method`, `params`): `Promise`\<`CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
 
 ###### Type parameters
 
@@ -454,11 +460,11 @@ ___
 | :------ | :------ |
 | `baseClass` | `Class` |
 | `method` | `Method` |
-| `params` | `Parameters`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
+| `params` | `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
 
 ###### Returns
 
-`Promise`\<`ReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
+`Promise`\<`CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>\>
 
 ##### Inherited from
 
@@ -630,6 +636,8 @@ NetWorkModule.token
 
 • `get` **appData**(): [`AppData`](AppData)
 
+由 iNCU WebView 注入的来自 App 的数据
+
 ##### Returns
 
 [`AppData`](AppData)
@@ -686,6 +694,9 @@ ___
 
 • `get` **isApp**(): `boolean`
 
+通过 userAgent 判断是否在 iNCU 环境
+userAgent: iNCU.*
+
 ##### Returns
 
 `boolean`
@@ -714,6 +725,8 @@ ___
 
 • `get` **isReady**(): `any`
 
+由 App 端注入的数据段，用以判断是否注入成功
+
 ##### Returns
 
 `any`
@@ -727,6 +740,8 @@ ___
 #### messageChannel
 
 • `get` **messageChannel**(): `EventEmitter`
+
+与 App 端通信的消息通道
 
 ##### Returns
 
@@ -773,6 +788,8 @@ ___
 #### webview
 
 • `get` **webview**(): `any`
+
+App 端的 Webview JavaScriptInterface，用以向 App 端发送信息
 
 ##### Returns
 

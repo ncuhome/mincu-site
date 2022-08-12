@@ -48,6 +48,12 @@ for (const dep of mincuDeps) {
   const final = out
     .replace(/<!--.+-->\n/gm, '')
     .replace(/<a name=.+a>\n/gm, '')
+    .replace(/enums\//g, '#enumeration-')
+    .replace(/classes\//g, '#class-')
+    .replace(/interfaces\//g, '#interface-')
+    .replace(/\(#.+-(?<section>.+)\)/g, e => {
+      return e.toLowerCase()
+    })
     .replace(/</g, '\\<')
     .replace(/{/g, '\\{')
   

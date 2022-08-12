@@ -24,8 +24,7 @@ ___
 
 ▸ **useNativeState**\<`T`\>(`key`): `States`[`T`]
 
-返回当前所监听的客户端状态
-如果要在其他项目中使用，建议直接复制
+返回 app 的状态
 
 #### Type parameters
 

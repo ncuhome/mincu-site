@@ -4,7 +4,7 @@
 
 ## Classes
 
-- [EventModule](classes/EventModule)
+- [EventModule](#class-eventmodule)
 
 # Classes
 

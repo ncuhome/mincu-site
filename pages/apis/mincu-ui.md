@@ -4,7 +4,7 @@
 
 ## Classes
 
-- [UIModule](classes/UIModule)
+- [UIModule](#class-uimodule)
 
 # Classes
 

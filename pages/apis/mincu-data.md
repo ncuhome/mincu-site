@@ -4,7 +4,7 @@
 
 ## Classes
 
-- [DataModule](classes/DataModule)
+- [DataModule](#class-datamodule)
 
 # Classes
 
