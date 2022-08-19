@@ -253,6 +253,16 @@ ___
 
 ___
 
+#### Orientation
+
+• **Orientation**: typeof `Orientation`
+
+**`Since`**
+
+iNCU 5.9.7+
+
+___
+
 #### Portal
 
 • **Portal**: `Object`
@@ -404,7 +414,7 @@ ___
 
 #### call
 
-• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: () => `void`) => `void`
+• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: (...`args`: `any`[]) => `void`) => `void`
 
 ##### Type declaration
 
@@ -427,7 +437,7 @@ ___
 | `method` | `Method` |
 | `params` | `ParamType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\> |
 | `success?` | (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](INativeFuncs)[`Class`][`Method`]\>  }) => `any` |
-| `failed?` | () => `void` |
+| `failed?` | (...`args`: `any`[]) => `void` |
 
 ###### Returns
 
@@ -538,6 +548,38 @@ MincuCoreBase.listener
 
 ___
 
+#### makeProxyFromNativeFunc
+
+• **makeProxyFromNativeFunc**: \<Class\>(`func`: `Class`) => [`INativeFuncs`](INativeFuncs)[`Class`]
+
+##### Type declaration
+
+▸ \<`Class`\>(`func`): [`INativeFuncs`](INativeFuncs)[`Class`]
+
+Return a proxy handle callPromise from INativeFuncs
+
+###### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Class` | extends keyof [`INativeFuncs`](INativeFuncs) |
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `func` | `Class` |
+
+###### Returns
+
+[`INativeFuncs`](INativeFuncs)[`Class`]
+
+##### Inherited from
+
+MincuCoreBase.makeProxyFromNativeFunc
+
+___
+
 #### once
 
 • **once**: (`eventName`: `string`, `fn`: (`data`: `any`) => `any`) => `EventEmitter`
@@ -562,6 +604,20 @@ ___
 ##### Inherited from
 
 MincuCoreBase.once
+
+___
+
+#### orientation
+
+• **orientation**: typeof `Orientation`
+
+**`Since`**
+
+iNCU 5.9.7+
+
+##### Inherited from
+
+UIModule.orientation
 
 ___
 

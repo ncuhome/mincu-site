@@ -51,6 +51,7 @@ for (const dep of mincuDeps) {
     .replace(/enums\//g, '#enumeration-')
     .replace(/classes\//g, '#class-')
     .replace(/interfaces\//g, '#interface-')
+    .replace(/modules\//g, '#')
     .replace(/\(#.+-(?<section>.+)\)/g, e => {
       return e.toLowerCase()
     })

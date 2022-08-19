@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@kuss/concat-md': ^0.4.0
-  '@types/node': ^18.7.1
+  '@types/node': ^18.7.6
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/react-native': ^0.69.5
@@ -26,19 +26,19 @@ dependencies:
   '@kuss/concat-md': 0.4.0
 
 devDependencies:
-  '@types/node': 18.7.2
+  '@types/node': 18.7.6
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
   '@types/react-native': 0.69.5
   axios: 0.27.2
-  mincu-core: 2.8.2
-  mincu-data: 2.8.2
-  mincu-event: 2.8.2
-  mincu-hooks: 2.8.2
+  mincu-core: 2.9.0
+  mincu-data: 2.9.0
+  mincu-event: 2.9.0
+  mincu-hooks: 2.9.0
   mincu-lib: 2.8.1
-  mincu-react: 2.8.2
-  mincu-ui: 2.8.2
-  mincu-vanilla: 2.8.2
+  mincu-react: 2.9.0
+  mincu-ui: 2.9.0
+  mincu-vanilla: 2.9.0
   typedoc: 0.23.10_typescript@4.7.4
   typedoc-plugin-inline-sources: 1.0.1_typedoc@0.23.10
   typedoc-plugin-markdown: 3.13.4_typedoc@0.23.10
@@ -123,14 +123,14 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.7.2
+      '@types/node': 18.7.6
     dev: true
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
 
-  /@types/node/18.7.2:
-    resolution: {integrity: sha512-ce7MIiaYWCFv6A83oEultwhBXb22fxwNOQf5DIxWA4WXvDQ7K+L0fbWl/YOfCzlR5B/uFkSnVBhPcOfOECcWvA==}
+  /@types/node/18.7.6:
+    resolution: {integrity: sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -585,7 +585,7 @@ packages:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.16.3
+      uglify-js: 3.17.0
     dev: true
 
   /hard-rejection/2.1.0:
@@ -841,70 +841,70 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /mincu-core/2.8.2:
-    resolution: {integrity: sha512-cgDXt/0Ui9h5seTkW3Aly81q7FjWtDVr3/oQ1+t64CesT0HixqhKVRTLLuYMJKbHyBWJ7YsG7nQsMuWgUEgABQ==}
+  /mincu-core/2.9.0:
+    resolution: {integrity: sha512-ctm5SxWhPcS8QOGCyk/jG2teueOaxqhMTNDaRLgjcp/Vi+sL5RquXqX5NZqK0W1OxjYeeTQnkWcYI+eTCbP2WQ==}
     dependencies:
       events: 3.3.0
       mincu-lib: 2.8.1
     dev: true
 
-  /mincu-data/2.8.2:
-    resolution: {integrity: sha512-Hicc9t1xSkaUQF6hHfyq/jnTpOHCqA6q6zXmgRoUjgqt1mqAKnPvXvC0SpIUkNbwFRK6XX9Psp1K9Q26svgK0A==}
+  /mincu-data/2.9.0:
+    resolution: {integrity: sha512-niODpRDSzdvQ1d9tQmOjAhE3DrwVRS6C6ZiOrOwg15ugDzMTDp0sAA2GECaZ+q6FbSZ2/OXaeVrHH9VkEkyNsw==}
     dependencies:
-      mincu-core: 2.8.2
+      mincu-core: 2.9.0
       mincu-lib: 2.8.1
     dev: true
 
-  /mincu-event/2.8.2:
-    resolution: {integrity: sha512-YbPCgTaLUEs/73dRTVLNiWZKbeDnJmaj5dEo8brHNbG1O6mPq4uC4bpvP1batQEXfFjMw+ItE0oMG5aITEjjFg==}
+  /mincu-event/2.9.0:
+    resolution: {integrity: sha512-lmi0PEBIXi/0yTPLo4ZQS+mjRwc8blNYQXhBE4hyd0y3LnK9i76SOnjELGLNz97BU9p2V4HN87rvBnoihUIqJQ==}
     dependencies:
-      mincu-core: 2.8.2
+      mincu-core: 2.9.0
     dev: true
 
-  /mincu-hooks/2.8.2:
-    resolution: {integrity: sha512-K0If536NOFaYOiysilSH7lTkkHKRfqPjRsHunhSvQIVWfKoj9h8CnYMHaFDUM/5mcbrVDqGdldR6lsJHeVHQJg==}
+  /mincu-hooks/2.9.0:
+    resolution: {integrity: sha512-5wEH4rc1mZE1M7kHKNABfAWRvRNAM5OmuwJCT1nVXpkSe1QDCBSDrzxhrluPSSMyjMET6MJ9r7XPR2DmMndUJg==}
     peerDependencies:
       react: '>=17'
     dependencies:
       lodash: 4.17.21
-      mincu-core: 2.8.2
-      mincu-data: 2.8.2
+      mincu-core: 2.9.0
+      mincu-data: 2.9.0
     dev: true
 
   /mincu-lib/2.8.1:
     resolution: {integrity: sha512-cKm4NH0089FlKBrtuvpAEYMU2i6KGanbUl5FOZETUNekKqz5ZP1MX97PgugPyUUWUuTHN29YEo2eNud0hyq5DQ==}
     dev: true
 
-  /mincu-network/2.8.2:
-    resolution: {integrity: sha512-eceY6nOGGfoWPCK9sJkxuHVdpWbLcdv1N9ZTnXAOrspjB5EUK7+blnfegHqL8a9db1WAO/qmlw1AoLXquLMSxg==}
+  /mincu-network/2.9.0:
+    resolution: {integrity: sha512-SYcLfleUSp736zR1dN/JdnEo+/FmKxwQ6771T2W+oHms2CydUyC0uJ3rZ7SW2yzC1tPxmYAFJPbpvJQYM3X6Ag==}
     dependencies:
-      mincu-core: 2.8.2
-      mincu-data: 2.8.2
+      mincu-core: 2.9.0
+      mincu-data: 2.9.0
     dev: true
 
-  /mincu-react/2.8.2:
-    resolution: {integrity: sha512-ou50o4kp+z+8Y2Xbox168VG4hIgTiEU+dDuVA0MJuI0NQnoh/mS6rOg2BhUnK+1Qmhhyd87Pb5OrvXZdxgpJZQ==}
+  /mincu-react/2.9.0:
+    resolution: {integrity: sha512-u1MharQ/a3n1FgbExnuKPhM7RgVCKcZ8tYLaaZkIXM663qPkzF2YfBzz8AU40Ql+m35e8eSTGRRuE/dTc9C8dg==}
     peerDependencies:
       react: '>=17'
     dependencies:
-      mincu-hooks: 2.8.2
-      mincu-vanilla: 2.8.2
+      mincu-hooks: 2.9.0
+      mincu-vanilla: 2.9.0
     dev: true
 
-  /mincu-ui/2.8.2:
-    resolution: {integrity: sha512-IAdEmCPZsA8AwHWA12qbO5Maj875QC8ydUUo0vjBYWNV6Jyj9rYyOpconSpctplXxMiHftgPHYHehV8KY9ZHdA==}
+  /mincu-ui/2.9.0:
+    resolution: {integrity: sha512-a6Epzhypm1B0pzaDJLoucN59CtY7Wqt/+KrR9lxln/45hXAfL1OwGgw5Ak/o38RTdwRB1is7vyL18OnX2A6C4w==}
     dependencies:
-      mincu-core: 2.8.2
+      mincu-core: 2.9.0
     dev: true
 
-  /mincu-vanilla/2.8.2:
-    resolution: {integrity: sha512-4hVs4Pf1xRnfC54ZrRjjF7uubTC85NEFnsYCiVKoR3m/6SeWkPiUyQnqMnwaTcCvWQgIi5b5aDyotudRrqsHDA==}
+  /mincu-vanilla/2.9.0:
+    resolution: {integrity: sha512-dgHQpBOZ+nWrcehjnTRQ8bW6eWgswgG5Lz+XjmBHyavLN3Wo42aBaueHc4mSUrzJ2RRDtmX207pVwnHO7u68vg==}
     dependencies:
-      mincu-core: 2.8.2
-      mincu-data: 2.8.2
-      mincu-event: 2.8.2
-      mincu-network: 2.8.2
-      mincu-ui: 2.8.2
+      mincu-core: 2.9.0
+      mincu-data: 2.9.0
+      mincu-event: 2.9.0
+      mincu-network: 2.9.0
+      mincu-ui: 2.9.0
     dev: true
 
   /minimatch/5.1.0:
@@ -1354,8 +1354,8 @@ packages:
     hasBin: true
     dev: true
 
-  /uglify-js/3.16.3:
-    resolution: {integrity: sha512-uVbFqx9vvLhQg0iBaau9Z75AxWJ8tqM9AV890dIZCLApF4rTcyHwmAvLeEdYRs+BzYWu8Iw81F79ah0EfTXbaw==}
+  /uglify-js/3.17.0:
+    resolution: {integrity: sha512-aTeNPVmgIMPpm1cxXr2Q/nEbvkmV8yq66F3om7X3P/cvOXQ0TMQ64Wk63iyT1gPlmdmGzjGpyLh1f3y8MZWXGg==}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true
@@ -1504,7 +1504,7 @@ packages:
     dependencies:
       '@types/fs-extra': 9.0.13
       '@types/minimist': 1.2.2
-      '@types/node': 18.7.2
+      '@types/node': 18.7.6
       '@types/ps-tree': 1.1.2
       '@types/which': 2.0.1
       chalk: 5.0.1

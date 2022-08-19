@@ -2,6 +2,10 @@
 
 # mincu-core
 
+## Namespaces
+
+- [Orientation](#Orientation)
+
 ## Enumerations
 
 - [NetInfoCellularGeneration](#enumeration-netinfocellulargeneration)
@@ -108,7 +112,7 @@ ___
 
 #### call
 
-• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: () => `void`) => `void`
+• **call**: \<Class, Method\>(`baseClass`: `Class`, `method`: `Method`, `params`: `ParamType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\>, `success?`: (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\>  }) => `any`, `failed?`: (...`args`: `any`[]) => `void`) => `void`
 
 ##### Type declaration
 
@@ -131,7 +135,7 @@ ___
 | `method` | `Method` |
 | `params` | `ParamType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\> |
 | `success?` | (`res?`: \{ `data`: `CallReturnType`\<[`INativeFuncs`](../#interface-INativeFuncs)[`Class`][`Method`]\>  }) => `any` |
-| `failed?` | () => `void` |
+| `failed?` | (...`args`: `any`[]) => `void` |
 
 ###### Returns
 
@@ -221,6 +225,34 @@ ___
 ###### Returns
 
 `EventEmitter`
+
+___
+
+#### makeProxyFromNativeFunc
+
+• **makeProxyFromNativeFunc**: \<Class\>(`func`: `Class`) => [`INativeFuncs`](../#interface-INativeFuncs)[`Class`]
+
+##### Type declaration
+
+▸ \<`Class`\>(`func`): [`INativeFuncs`](../#interface-INativeFuncs)[`Class`]
+
+Return a proxy handle callPromise from INativeFuncs
+
+###### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Class` | extends keyof [`INativeFuncs`](../#interface-INativeFuncs) |
+
+###### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `func` | `Class` |
+
+###### Returns
+
+[`INativeFuncs`](../#interface-INativeFuncs)[`Class`]
 
 ___
 
@@ -3410,6 +3442,16 @@ ___
 
 ___
 
+#### Orientation
+
+• **Orientation**: typeof [`Orientation`](../#Orientation)
+
+**`Since`**
+
+iNCU 5.9.7+
+
+___
+
 #### Portal
 
 • **Portal**: `Object`
@@ -3884,6 +3926,168 @@ ___
 | :------ | :------ |
 | `pattern?` | `number` \| `number`[] |
 | `repeat?` | `boolean` |
+
+##### Returns
+
+`void`
+
+# Modules
+
+
+
+## Namespace: Orientation
+
+### Functions
+
+#### addOrientationListener
+
+▸ **addOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### addSpecificOrientationListener
+
+▸ **addSpecificOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### getInitialOrientation
+
+▸ **getInitialOrientation**(): `orientation`
+
+##### Returns
+
+`orientation`
+
+___
+
+#### getOrientation
+
+▸ **getOrientation**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`err`: `Error`, `orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### getSpecificOrientation
+
+▸ **getSpecificOrientation**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`err`: `Error`, `orientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscape
+
+▸ **lockToLandscape**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscapeLeft
+
+▸ **lockToLandscapeLeft**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscapeRight
+
+▸ **lockToLandscapeRight**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToPortrait
+
+▸ **lockToPortrait**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### removeOrientationListener
+
+▸ **removeOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### removeSpecificOrientationListener
+
+▸ **removeSpecificOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### unlockAllOrientations
+
+▸ **unlockAllOrientations**(): `void`
 
 ##### Returns
 

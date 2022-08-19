@@ -33,6 +33,16 @@
 
 ___
 
+#### orientation
+
+• **orientation**: typeof `Orientation`
+
+**`Since`**
+
+iNCU 5.9.7+
+
+___
+
 #### toast
 
 • **toast**: `Object`

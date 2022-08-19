@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npx only-allow pnpm",
+    "regen": "pnpm upgrade && pnpm gen",
+    "gen": "zx generate.js"
   },
   "keywords": [],
   "author": "",
