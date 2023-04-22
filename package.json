@@ -10,16 +10,17 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "flexsearch": "^0.7.21",
-    "next": "^12.2.4",
-    "nextra": "2.0.0-beta.16",
-    "nextra-theme-docs": "2.0.0-beta.16",
+    "next": "13.3.0",
+    "nextra": "2.4.1",
+    "nextra-theme-docs": "2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17"
+    "@types/node": "18.15.13",
+    "@types/react": "^18.0.17",
+    "typescript": "^5.0.4"
   }
 }
