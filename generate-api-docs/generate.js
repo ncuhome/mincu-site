@@ -71,6 +71,6 @@ for (const dep of mincuDeps) {
   meta[dep] = dep
 }
 
-fs.writeJSONSync(`../pages/apis/meta.json`, meta, {
+fs.writeJSONSync(`../pages/apis/_meta.json`, meta, {
   spaces: 2
 })

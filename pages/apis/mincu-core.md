@@ -449,6 +449,168 @@ ___
 
 • **wimax** = ``"wimax"``
 
+# Modules
+
+
+
+## Namespace: Orientation
+
+### Functions
+
+#### addOrientationListener
+
+▸ **addOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### addSpecificOrientationListener
+
+▸ **addSpecificOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### getInitialOrientation
+
+▸ **getInitialOrientation**(): `orientation`
+
+##### Returns
+
+`orientation`
+
+___
+
+#### getOrientation
+
+▸ **getOrientation**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`err`: `Error`, `orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### getSpecificOrientation
+
+▸ **getSpecificOrientation**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`err`: `Error`, `orientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscape
+
+▸ **lockToLandscape**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscapeLeft
+
+▸ **lockToLandscapeLeft**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToLandscapeRight
+
+▸ **lockToLandscapeRight**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### lockToPortrait
+
+▸ **lockToPortrait**(): `void`
+
+##### Returns
+
+`void`
+
+___
+
+#### removeOrientationListener
+
+▸ **removeOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`orientation`: `orientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### removeSpecificOrientationListener
+
+▸ **removeSpecificOrientationListener**(`callback`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
+
+##### Returns
+
+`void`
+
+___
+
+#### unlockAllOrientations
+
+▸ **unlockAllOrientations**(): `void`
+
+##### Returns
+
+`void`
+
 # Interfaces
 
 
@@ -3926,168 +4088,6 @@ ___
 | :------ | :------ |
 | `pattern?` | `number` \| `number`[] |
 | `repeat?` | `boolean` |
-
-##### Returns
-
-`void`
-
-# Modules
-
-
-
-## Namespace: Orientation
-
-### Functions
-
-#### addOrientationListener
-
-▸ **addOrientationListener**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`orientation`: `orientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### addSpecificOrientationListener
-
-▸ **addSpecificOrientationListener**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### getInitialOrientation
-
-▸ **getInitialOrientation**(): `orientation`
-
-##### Returns
-
-`orientation`
-
-___
-
-#### getOrientation
-
-▸ **getOrientation**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`err`: `Error`, `orientation`: `orientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### getSpecificOrientation
-
-▸ **getSpecificOrientation**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`err`: `Error`, `orientation`: `specificOrientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### lockToLandscape
-
-▸ **lockToLandscape**(): `void`
-
-##### Returns
-
-`void`
-
-___
-
-#### lockToLandscapeLeft
-
-▸ **lockToLandscapeLeft**(): `void`
-
-##### Returns
-
-`void`
-
-___
-
-#### lockToLandscapeRight
-
-▸ **lockToLandscapeRight**(): `void`
-
-##### Returns
-
-`void`
-
-___
-
-#### lockToPortrait
-
-▸ **lockToPortrait**(): `void`
-
-##### Returns
-
-`void`
-
-___
-
-#### removeOrientationListener
-
-▸ **removeOrientationListener**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`orientation`: `orientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### removeSpecificOrientationListener
-
-▸ **removeSpecificOrientationListener**(`callback`): `void`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`specificOrientation`: `specificOrientation`) => `void` |
-
-##### Returns
-
-`void`
-
-___
-
-#### unlockAllOrientations
-
-▸ **unlockAllOrientations**(): `void`
 
 ##### Returns
 

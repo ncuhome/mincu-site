@@ -873,17 +873,15 @@ ___
 
 #### getStoredToken
 
-▸ **getStoredToken**(): `string`
+▸ **getStoredToken**(): `void`
 
-从浏览器缓存中拿取 token
+**`Deprecated`**
 
-一般放在该组件挂载 (渲染) 阶段结束后执行
+should not use
 
 ##### Returns
 
-`string`
-
-取出缓存中的 token
+`void`
 
 ##### Inherited from
 
